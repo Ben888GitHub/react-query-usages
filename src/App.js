@@ -1,7 +1,7 @@
 import './App.css';
 
-import Characters from './components/Characters';
-import WithoutReactQuery from './components/WithoutReactQuery';
+// import Characters from './components/Characters';
+// import WithoutReactQuery from './components/WithoutReactQuery';
 import WithReactQuery from './components/WithReactQuery';
 import { QueryClient, QueryClientProvider } from 'react-query';
 
