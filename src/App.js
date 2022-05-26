@@ -4,6 +4,7 @@ import './App.css';
 // import WithoutReactQuery from './components/WithoutReactQuery';
 import WithReactQuery from './components/WithReactQuery';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
 // Instantiate new Client
 const queryClient = new QueryClient();
@@ -19,6 +20,7 @@ function App() {
 
 					{/* <WithoutReactQuery /> */}
 					<WithReactQuery />
+					<ReactQueryDevtools initialIsOpen={false} />
 				</QueryClientProvider>
 			</div>
 		</div>
