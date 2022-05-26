@@ -1,9 +1,7 @@
-import { useState, memo } from 'react';
+import { memo } from 'react';
 import { useQuery } from 'react-query';
 
 function Characters() {
-	const [characters, setCharacters] = useState([]);
-
 	const fetchCharacters = async () => {
 		const response = await fetch('https://rickandmortyapi.com/api/character');
 		const data = await response.json();
