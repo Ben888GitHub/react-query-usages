@@ -15,7 +15,7 @@ function WithReactQuery() {
 		localStorage.setItem('currentPage', Number(queryKey[1]));
 		return data;
 	};
-	const { isLoading, error, data } = useQuery(
+	const { isLoading, error, data, isPreviousData } = useQuery(
 		['characters', page],
 		fetchCharacters,
 		{
@@ -43,7 +43,7 @@ function WithReactQuery() {
 						Previous
 					</button>
 					<button
-						disabled={!data?.info?.next}
+						disabled={!data?.info?.next || isPreviousData}
 						onClick={() => setPage(page + 1)}
 					>
 						Next
