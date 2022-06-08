@@ -3,7 +3,7 @@ import Character from './character/Character';
 import { useState } from 'react';
 
 function WithInfiniteQueries() {
-	const [currentPage, setCurrentPage] = useState(1);
+	// const [currentPage, setCurrentPage] = useState(1);
 	// const currentPage = 1;
 	const fetchUsers = async ({
 		pageParam = `https://rickandmortyapi.com/api/character?page=1`
