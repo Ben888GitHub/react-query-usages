@@ -5,11 +5,11 @@ import { useState } from 'react';
 function WithInfiniteQueries() {
 	const [currentPage, setCurrentPage] = useState(1);
 	// const currentPage = 1;
-	const fetchUsers = async ({ pageParam = 1 }) => {
+	const fetchUsers = async ({
+		pageParam = `https://rickandmortyapi.com/api/character?page=1`
+	}) => {
 		console.log(pageParam);
-		const res = await fetch(
-			`https://rickandmortyapi.com/api/character?page=${pageParam}`
-		);
+		const res = await fetch(pageParam);
 		const data = await res.json();
 		return data;
 	};
@@ -17,9 +17,10 @@ function WithInfiniteQueries() {
 	const { isLoading, error, data, fetchNextPage, isFetchingNextPage } =
 		useInfiniteQuery(['characters'], fetchUsers, {
 			getPreviousPageParam: (firstPage, page) => firstPage.info.page - 1,
-			getNextPageParam: (lastPage, pages) => lastPage.nextCursor,
+			getNextPageParam: (lastPage, pages) => lastPage.info.next,
 
-			refetchOnWindowFocus: false // to prevent refetch when we get out and come back to the browser window / page
+			refetchOnWindowFocus: false, // to prevent refetch when we get out and come back to the browser window / page
+			keepPreviousData: true
 		});
 
 	if (isLoading) {
@@ -45,10 +46,11 @@ function WithInfiniteQueries() {
 			</div>
 			<div className="btn-container">
 				<button
-					onClick={() => {
-						setCurrentPage(currentPage + 1);
-						fetchNextPage({ pageParam: currentPage + 1 });
-					}}
+					// onClick={() => {
+					// 	setCurrentPage(currentPage + 1);
+					// 	fetchNextPage({ pageParam: currentPage + 1 });
+					// }}
+					onClick={fetchNextPage}
 					disabled={isFetchingNextPage}
 				>
 					Load More
