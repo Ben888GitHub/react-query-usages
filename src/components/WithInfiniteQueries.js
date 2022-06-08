@@ -1,6 +1,5 @@
 import { useInfiniteQuery } from 'react-query';
 import Character from './character/Character';
-import { useState } from 'react';
 
 function WithInfiniteQueries() {
 	// const [currentPage, setCurrentPage] = useState(1);
