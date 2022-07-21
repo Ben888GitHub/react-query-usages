@@ -19,7 +19,8 @@ function WithReactQuery() {
 		['characters', page],
 		fetchCharacters,
 		{
-			keepPreviousData: true // to make sure the pagination pre-store the data
+			keepPreviousData: true, // to make sure the pagination pre-store the data
+			refetchOnWindowFocus: false // to prevent refetch when we get out and come back to the browser window / page
 		}
 	);
 
