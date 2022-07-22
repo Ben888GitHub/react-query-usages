@@ -13,14 +13,10 @@ const fetchData = async ({ queryKey }) => {
 
 function MoreOnPagination() {
 	const [page, setPage] = useState(1);
-	const { data, error, isPreviousData, isLoading } = useQuery(
-		['posts', page],
-		fetchData,
-		{
-			keepPreviousData: true,
-			refetchOnWindowFocus: false
-		}
-	);
+	const { data, error, isLoading } = useQuery(['posts', page], fetchData, {
+		keepPreviousData: true,
+		refetchOnWindowFocus: false
+	});
 	console.log(data);
 	if (isLoading) return <div>Loading</div>;
 
