@@ -6,9 +6,6 @@ import WithReactQuery from './components/WithReactQuery';
 import { QueryClient, QueryClientProvider } from 'react-query';
 import { ReactQueryDevtools } from 'react-query/devtools';
 import WithInfiniteQueries from './components/WithInfiniteQueries';
-import ParallelQueries from './components/ParallelQueries';
-import DynamicParallelQueries from './components/DynamicParallelQueries';
-import MoreOnPagination from './components/MoreOnPagination';
 
 // Instantiate new Client
 const queryClient = new QueryClient();
