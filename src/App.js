@@ -36,11 +36,11 @@ function App() {
 						)}
 					</div>
 				</div>
-				<ParallelQueries />
+				{/* <ParallelQueries />
 				<br />
 				<DynamicParallelQueries />
-				<br />
-				<MoreOnPagination />
+				<br /> */}
+				{/* <MoreOnPagination /> */}
 				<ReactQueryDevtools initialIsOpen={false} />
 			</QueryClientProvider>
 		</>
